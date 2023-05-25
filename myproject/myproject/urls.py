@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users.views import my_signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),
+
+    # override the SignupView of django-allauth
+    path("accounts/signup/", view=my_signup),
     path('accounts/', include('allauth.urls')),
 ]

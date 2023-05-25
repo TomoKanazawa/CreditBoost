@@ -1,0 +1,14 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}You recently added a new email address to your Nova account.
+
+To confirm the address click the following link, or paste it into your browser:
+
+{{ activate_url }}
+
+
+Thanks for using Nova!
+The Nova Team
+{% endblocktrans %}{% endautoescape %}{% endblock %}

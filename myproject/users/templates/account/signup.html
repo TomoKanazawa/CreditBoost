@@ -1,0 +1,81 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <h1 class="text-center">{% trans "Sign Up" %}</h1>
+
+        <div class="d-flex justify-content-center">
+          <p class="px-2">{% blocktrans %}Already have an account? <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        </div>
+
+        <div class="socialaccount_ballot">
+            
+          <ul class="socialaccount_providers">
+            <li class="d-flex justify-content-center">
+              <a role="button" title="Google" class="ocialaccount_provider d-flex justify-content-center" href="/accounts/google/login/?process=login">
+                <img class="" src="{% static 'users/image/googleSignIn.png' %}">
+              </a>
+            </li>
+          </ul>
+        </div>
+          
+        <div class="or-container">
+          <div class="line-separator"></div>
+          <div class="login-or text-center or-label">{% trans 'or' %}</div>
+          <div class="line-separator"></div>
+
+        </div>
+        
+        <form class="signup px-2" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          <p>
+            <div class="row d-flex justify-content-center">
+              <div class="col-9">
+                <input type="email" name="email" placeholder="E-mail address" autocomplete="email" required="" id="id_email">
+              </div>
+            </div>  
+          </p>
+          <p>
+            <div class="row d-flex justify-content-center">
+              <div class="col-9">
+                <input type="password" name="password1" placeholder="Password" autocomplete="new-password" required="" id="id_password1">
+              </div>
+            </div>
+          </p>
+          <p>
+            <div class="row d-flex justify-content-center">
+              <div class="col-9">
+                <input type="password" name="password2" placeholder="Password (again)" autocomplete="new-password" required="" id="id_password2">
+              </div>
+            </div>
+              
+              
+                
+              
+            </p>
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button class="my-btn-purple" type="submit">{% trans "Sign Up" %} &raquo;</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

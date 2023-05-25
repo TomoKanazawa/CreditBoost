@@ -1,0 +1,83 @@
+$dark-blue: #1c2540;
+$light-blue: #EBF4F6;
+$grayish-light-blue: #dbeaed;
+$bluish-purple: #424AA0;
+$off-white: #F9FAFB;
+$light-gray: rgba(128, 128, 128, 0.5);
+$red-purple: #893168;
+$google-blue: #4285f4;
+
+body {
+    background-color: $dark-blue;
+    &::before {
+        background-image: url('../account/image/futuristic_city.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity: 0.1;
+        /* Set the pseudo-element to cover the entire container */
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+          /* Move the background to the back, so the content is not affected */
+        z-index: -1;
+    }
+}
+
+input {
+    width: 90%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+// Class
+
+.card {
+    margin-top: 7rem;
+    padding: 1rem;
+}
+
+.my-btn-purple {
+    background-color: $red-purple;
+    color: $off-white;
+}
+.my-btn-darkblue {
+    background-color: $dark-blue;
+    color: $off-white;
+}
+
+.socialaccount_ballot {
+    ul {
+        padding-left: 0;
+    }
+    img {
+        width: 60%;
+        padding: 0.5rem;
+        &:hover {
+            filter: drop-shadow(0 0 3px $google-blue);
+        }
+    }
+}
+
+.or-container {
+    align-items: center;
+    color: #ccc;
+    display: flex;
+    margin: 25px 0;
+}
+.line-separator {
+    background-color: #ccc;
+    flex-grow: 5;
+    height: 1px;
+}
+.or-label {
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: center;
+}

@@ -1,0 +1,73 @@
+body {
+  background-color: #1c2540;
+}
+body::before {
+  background-image: url("../account/image/futuristic_city.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.1;
+  /* Set the pseudo-element to cover the entire container */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Move the background to the back, so the content is not affected */
+  z-index: -1;
+}
+
+input {
+  width: 90%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.card {
+  margin-top: 7rem;
+  padding: 1rem;
+}
+
+.my-btn-purple {
+  background-color: #893168;
+  color: #F9FAFB;
+}
+
+.my-btn-darkblue {
+  background-color: #1c2540;
+  color: #F9FAFB;
+}
+
+.socialaccount_ballot ul {
+  padding-left: 0;
+}
+.socialaccount_ballot img {
+  width: 60%;
+  padding: 0.5rem;
+}
+.socialaccount_ballot img:hover {
+  filter: drop-shadow(0 0 3px #4285f4);
+}
+
+.or-container {
+  align-items: center;
+  color: #ccc;
+  display: flex;
+  margin: 25px 0;
+}
+
+.line-separator {
+  background-color: #ccc;
+  flex-grow: 5;
+  height: 1px;
+}
+
+.or-label {
+  flex-grow: 1;
+  margin: 0 15px;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
