@@ -162,6 +162,7 @@ cython_debug/
 # Added
 .DS_Store
 Prompts/
+.vscode/
 
 # For test
 test/
