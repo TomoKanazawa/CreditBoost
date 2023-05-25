@@ -1,0 +1,72 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block content %}
+<div class="loaders hidden">
+    <span id="screen-blocker"></span>
+</div>
+
+<div class="mybg-edward">
+    <div class="container">
+
+        <!-- Eye catch -->
+        <div class="row d-flex justify-content-center p-4">
+            <div class="col-8 text-center">
+                <h1>Hellow World!</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil iste voluptatem quae animi possimus quasi aliquam dolorum. Dolorum doloribus cupiditate eveniet laudantium, enim est quis magnam officiis molestiae nostrum suscipit nemo nobis facere cum ab ratione dignissimos, voluptas fugiat minus adipisci quasi expedita consectetur. Sit, voluptas, accusamus sunt commodi perferendis enim nisi magnam alias vitae aspernatur sed corporis fugiat.</p>
+            </div>
+        </div>
+
+
+        <div class="row index-3" id="feature">
+            <div class="col-10 d-flex align-items-center">
+                <ul>
+                    <li class="slide-in-left">
+                        <h3>
+                            <i class="fa-solid fa-jet-fighter"></i>
+                            Fast
+                        </h3>
+                        <p>
+                            Edward can help you get things done faster than ever before. 
+                            Say goodbye to tedious proofreading tasks and hello to more time 
+                            for the things that matter most.
+                        </p>
+                    </li>
+                    <li class="slide-in-left">
+                        <h3>
+                            <i class="fa-solid fa-check"></i>
+                            Accurate
+                        </h3>
+                        <p>
+                            Edward is just as accurate as a professional 
+                            human proofreader, if not more. You'll receive detailed feedback 
+                            on your writing, enabling you to understand and improve your skills 
+                            with each submission.
+                        </p>
+                    </li>
+                    <li class="slide-in-left">
+                        <h3>
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            Reasonable
+                        </h3>
+                        <p>
+                            You'll have access to state-of-the-art technology 
+                            at a fraction of the cost of traditional human editors.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}
