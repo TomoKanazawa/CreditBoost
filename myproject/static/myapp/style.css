@@ -1,0 +1,406 @@
+@keyframes slide-in-left {
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+header, body, footer {
+  background-color: #EBF4F6;
+  color: #1c2540;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #1c2540;
+}
+
+input, textarea {
+  border-radius: 1rem !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+#original-area, #revised-area {
+  background-color: #F9FAFB;
+  border-radius: 1rem;
+  height: 32rem;
+  padding: 0.7rem;
+  overflow: auto;
+}
+
+#submit-button {
+  width: 8rem;
+  height: 3rem;
+}
+
+.bg-gray-out {
+  background-color: #E9ECEF !important;
+}
+
+.copy-button {
+  color: rgba(128, 128, 128, 0.5);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.copy-button:active {
+  color: gray;
+}
+
+.form-control {
+  background-color: #F9FAFB;
+}
+.form-control:focus {
+  background-color: #F9FAFB;
+}
+
+.mybg-edward {
+  background-color: #EBF4F6;
+}
+
+.edward-img {
+  border-radius: 50%;
+  width: 9rem;
+  height: 9rem;
+  border: 0.5rem solid #F9FAFB;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.slide-in-left.myactive {
+  animation: slide-in-left 0.7s ease-out forwards;
+}
+
+.mybtn-dark-blue {
+  background-color: #1c2540;
+  color: #F9FAFB;
+}
+
+.mybtn-sm-dark-blue {
+  padding: 0.3rem 0.7rem;
+  background-color: #1c2540;
+  color: #F9FAFB;
+}
+
+.mybtn-blue-purple {
+  background-color: #424AA0;
+  color: #F9FAFB;
+}
+
+.mybtn-sm-blue-purple {
+  padding: 0.3rem 0.7rem;
+  background-color: #424AA0;
+  color: #F9FAFB;
+}
+
+.mybtn-red-purple {
+  background-color: #893168;
+  color: #F9FAFB;
+}
+
+.mybtn-sm-red-purple {
+  padding: 0.3rem 0.7rem;
+  background-color: #893168;
+  color: #F9FAFB;
+}
+
+.mybtn-blue-outline {
+  background-color: transparent;
+  color: #1c2540;
+  border: 0.2rem solid #1c2540;
+  padding: 0.5rem 0.9rem;
+}
+.mybtn-blue-outline:hover {
+  background-color: #1c2540;
+  color: #EBF4F6;
+}
+
+.card {
+  background-color: #F9FAFB;
+  border-radius: 1rem;
+  border: none;
+}
+
+.hover-green:hover {
+  background-color: rgba(0, 255, 21, 0.3);
+}
+
+.highlight-green {
+  background-color: rgba(0, 255, 21, 0.3);
+}
+
+.highlight-red:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.highlight-red {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.adv {
+  background-color: black !important;
+  border-radius: 2rem;
+  padding: 0.6rem 0rem;
+  opacity: 0.4;
+}
+.adv:hover {
+  opacity: 1;
+}
+.adv h2 {
+  color: white;
+}
+
+.index-2 ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.index-2 ul h3 {
+  text-align: center;
+}
+.index-2 ul ul {
+  list-style-type: disc;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+.index-2 .option {
+  background-color: #F9FAFB;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
+
+.sample {
+  margin: 3rem 0;
+}
+.sample .sample-image {
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+.sample .sample-image:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: -0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.index-3 {
+  margin: 5rem 0rem;
+}
+.index-3 ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.index-3 ul li {
+  margin: 3rem 0;
+}
+.index-3 img {
+  width: 100%;
+}
+.index-3 .fa-jet-fighter {
+  color: #424AA0;
+}
+.index-3 .fa-check {
+  color: #424AA0;
+}
+.index-3 .fa-hand-holding-dollar {
+  color: #424AA0;
+}
+
+.index-4 {
+  margin: 10rem 0;
+}
+.index-4 h4 {
+  text-align: center;
+}
+.index-4 ul {
+  list-style: none;
+  padding-left: 0;
+}
+.index-4 ul li {
+  margin: 0 0;
+}
+.index-4 img {
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.index-pricing {
+  margin: 10rem 0;
+}
+.index-pricing li {
+  margin: 1rem 0;
+}
+
+.form-upload .form-top {
+  margin-bottom: 2rem;
+}
+.form-upload .form-top .img-wrapper img {
+  width: 5rem;
+  height: 5rem;
+  display: block;
+  margin: 0.2rem auto 0.2rem auto;
+}
+.form-upload .form-top .img-wrapper h6 {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.form-upload .form-top select {
+  width: 13rem;
+  transition: background-color 0.2s;
+}
+.form-upload .form-top textarea {
+  width: 98%;
+  transition: background-color 0.2s;
+}
+.form-upload .form-top textarea::-moz-placeholder {
+  -moz-transition: color 2s;
+  transition: color 2s;
+}
+.form-upload .form-top textarea::placeholder {
+  transition: color 2s;
+}
+.form-upload.container {
+  width: 100vw;
+}
+.form-upload a {
+  text-decoration: none;
+}
+.form-upload h6 {
+  margin: auto;
+  font-weight: bold;
+}
+.form-upload .form-control:focus {
+  box-shadow: 0 0 0.2rem #424AA0;
+  border-color: #ced4da;
+}
+.form-upload .original-wrapper .title-area, .form-upload .revised-wrapper .title-area {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.form-upload .original-wrapper .title-area h5, .form-upload .revised-wrapper .title-area h5 {
+  display: inline-block;
+  margin: 0;
+}
+.form-upload .original-wrapper .title-area div, .form-upload .revised-wrapper .title-area div {
+  display: flex;
+  align-items: center;
+  margin: auto 2rem;
+  padding: 0.2rem 2rem;
+  border-radius: 1rem;
+  background-color: #dbeaed;
+}
+.form-upload .original-wrapper .input-area, .form-upload .revised-wrapper .input-area {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -100;
+}
+
+.dot1, .dot2, .dot3 {
+  display: inline-block;
+  background: #fff;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  margin: 0.3em;
+}
+
+.dot1 {
+  animation: jump 1.6s -0.32s linear infinite;
+  background: white;
+}
+
+.dot2 {
+  animation: jump 1.6s -0.16s linear infinite;
+  background: white;
+}
+
+.dot3 {
+  animation: jump 1.6s linear infinite;
+  background: white;
+}
+
+@keyframes jump {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(2);
+  }
+}
+.tippy-box.custom-theme {
+  background-color: #F9FAFB; /* Change the background color */
+  color: #1c2540; /* Change the text color */
+  /* Add other styles as needed */
+}/*# sourceMappingURL=style.css.map */
+
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+.test-blue {
+  background-color: blue !important;
+}
+
+.test-red {
+  background-color: red !important;
+}
+
+.test-yellow {
+  background-color: yellow !important;
+}
+
+header, body, footer {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+input, textarea {
+  border-radius: 1rem !important;
+  border: none;
+  padding-left: 0.4rem;
+}
+
+h5, p {
+  line-height: 200%;
+}
+
+button {
+  border-radius: 1rem;
+  padding: 0.7rem 1.1rem;
+  border: 0px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.drop-shadow {
+  filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
+}
+
+#screen-blocker {
+  position: fixed;
+  background-color: black;
+  opacity: 50%;
+  z-index: 100;
+  top: -50%;
+  left: -50%;
+  height: 200vh;
+  width: 200vw;
+}/*# sourceMappingURL=style.css.map */
