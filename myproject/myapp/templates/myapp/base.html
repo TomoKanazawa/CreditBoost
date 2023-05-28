@@ -50,8 +50,8 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                      <a class="nav-link" href="#" id="feature-button">Features</a>
-                      <a class="nav-link" href="#" id="pricing-button">Pricing</a>
+                      <a class="nav-link" href="#" id="profile-button">Profile</a>
+                      <a class="nav-link" href="#" id="loanmanage-button">Loan Management</a>
 
                     </div>
                   </div>
@@ -93,8 +93,8 @@
         <!-- Scroll after pushing nav buttons -->
         <script>
           const currentURL = window.location.href;
-          const navButtonIds = ['pricing-button', 'feature-button'];
-          const navButtonTargets = {'pricing-button': 'pricing', 'feature-button': 'feature'};
+          const navButtonIds = ['loanmanage-button', 'profile-button'];
+          const navButtonTargets = {'loanmanage-button': 'loanmanage', 'profile-button': 'feature'};
           const navButtons = navButtonIds.map(id => document.getElementById(id));
           navButtons.forEach((navButton) => {
             navButton.addEventListener("click", () => {

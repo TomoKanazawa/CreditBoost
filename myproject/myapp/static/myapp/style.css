@@ -7,13 +7,22 @@
     transform: translateX(0%);
   }
 }
-header, body, footer {
+header {
   background-color: #EBF4F6;
   color: #1c2540;
 }
 
+body, footer {
+  background-color: #1c2540;
+  color: #EBF4F6;
+}
+
 h1, h2, h3, h4, h5, h6, p {
-  color: #1c2540;
+  color: #ffffff;
+}
+
+h1 {
+  font-weight: bold;
 }
 
 input, textarea {
@@ -59,7 +68,24 @@ a {
 }
 
 .mybg-edward {
-  background-color: #EBF4F6;
+  background-color: #1c2540;
+  position: relative;
+  margin-top: 5%;
+}
+
+.center {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  padding: 0;
+  display: block;
+  margin: 0 auto auto 0;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .edward-img {
