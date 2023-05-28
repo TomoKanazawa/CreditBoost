@@ -90,8 +90,8 @@
               >
               <a
                 class="nav-link"
-                href="{% url 'myapp:loanmanage' %}"
-                id="loanmanage-button"
+                href="{% url 'myapp:loan_manage' %}"
+                id="loan_manage-button"
                 >Loan Management</a
               >
             </div>
@@ -112,23 +112,6 @@
       </nav>
     </header>
 
-    <div class="mybg-edward">
-      <div class="container">
-        <!-- Eye catch -->
-        {% if not user.is_authenticated %}
-        <div class="row justify-content-center">
-          <div class="col-6 text-center">
-            <h1>Please login to manage your loans!</h1>
-          </div>
-        </div>
-        {% else %}
-        <div class="row justify-content-center">
-          <div class="col-6 text-center"></div>
-        </div>
-        {% endif %}
-      </div>
-    </div>
-
     <footer class="text-center">
       <!-- Copyright -->
       <div class="text-center p-3">© 2023 Copyright: CreditBoost.com</div>
@@ -145,10 +128,10 @@
     <!-- Scroll after pushing nav buttons -->
     <script>
       const currentURL = window.location.href;
-      const navButtonIds = ["loanmanage-button", "profile-button"];
+      const navButtonIds = ["loan_manage-button", "profile-button"];
       const navButtonTargets = {
-        "loanmanage-button": "loanmanage",
-        "profile-button": "feature",
+        "loan_manage-button": "loan_manage",
+        "profile-button": "profile",
       };
       const navButtons = navButtonIds.map((id) => document.getElementById(id));
       navButtons.forEach((navButton) => {
@@ -162,11 +145,11 @@
             navButtonTargets[navButton.id]
           );
 
-          if (currentURL === "{% url 'myapp:loanmanage' %}") {
+          if (currentURL === "{% url 'myapp:loan_application' %}") {
             targetElement.scrollIntoView({ behavior: "smooth" });
           } else {
             // Redirect to the destination page
-            window.location.href = "{% url 'myapp:loanmanage' %}";
+            window.location.href = "{% url 'myapp:loan_application' %}";
           }
         });
       });

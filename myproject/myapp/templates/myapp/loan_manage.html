@@ -112,6 +112,45 @@
       </nav>
     </header>
 
+    <div class="mybg-edward">
+      <div class="container">
+        <!-- Eye catch -->
+        {% if not user.is_authenticated %}
+        <div class="row justify-content-center">
+          <div class="col-6 text-center">
+            <h1>Please login to manage your loans!</h1>
+          </div>
+        </div>
+        {% else %}
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="btn-group">
+              <a href="{% url 'myapp:loan_application' %}">
+                <button>Apply for a Loan</button>
+              </a>
+              <a href="{% url 'myapp:manage_active_loan' %}">
+                <button>Manage an Active Loan</button>
+              </a>
+            </div>
+          </div>
+        </div>
+            
+        <!-- <div class="row">
+          <div class="col-6">
+            <a href="{% url 'myapp:loan_application' %}">
+              <button class="mybtn-red-purple">Apply for a Loan</button>
+            </a>
+          </div>
+          <div class="col-6">
+            <a href="{% url 'myapp:manage_active_loan' %}">
+              <button class="mybtn-red-purple">Manage an Active Loan</button>
+            </a>
+          </div>
+        </div> -->
+        {% endif %}
+      </div>
+    </div>
+
     <footer class="text-center">
       <!-- Copyright -->
       <div class="text-center p-3">© 2023 Copyright: CreditBoost.com</div>
@@ -145,11 +184,11 @@
             navButtonTargets[navButton.id]
           );
 
-          if (currentURL === "{% url 'myapp:profile' %}") {
+          if (currentURL === "{% url 'myapp:loan_manage' %}") {
             targetElement.scrollIntoView({ behavior: "smooth" });
           } else {
             // Redirect to the destination page
-            window.location.href = "{% url 'myapp:profile' %}";
+            window.location.href = "{% url 'myapp:loan_manage' %}";
           }
         });
       });

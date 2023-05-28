@@ -90,8 +90,8 @@
               >
               <a
                 class="nav-link"
-                href="{% url 'myapp:loanmanage' %}"
-                id="loanmanage-button"
+                href="{% url 'myapp:loan_manage' %}"
+                id="loan_manage-button"
                 >Loan Management</a
               >
             </div>
@@ -130,10 +130,10 @@
     <!-- Scroll after pushing nav buttons -->
     <script>
       const currentURL = window.location.href;
-      const navButtonIds = ["loanmanage-button", "profile-button"];
+      const navButtonIds = ["loan_manage-button", "profile-button"];
       const navButtonTargets = {
-        "loanmanage-button": "loanmanage",
-        "profile-button": "feature",
+        "loan_manage-button": "loan_manage",
+        "profile-button": "profile",
       };
       const navButtons = navButtonIds.map((id) => document.getElementById(id));
       navButtons.forEach((navButton) => {

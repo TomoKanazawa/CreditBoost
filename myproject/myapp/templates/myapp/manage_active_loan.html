@@ -145,11 +145,11 @@
             navButtonTargets[navButton.id]
           );
 
-          if (currentURL === "{% url 'myapp:profile' %}") {
+          if (currentURL === "{% url 'myapp:manage_active_loan' %}") {
             targetElement.scrollIntoView({ behavior: "smooth" });
           } else {
             // Redirect to the destination page
-            window.location.href = "{% url 'myapp:profile' %}";
+            window.location.href = "{% url 'myapp:manage_active_loan' %}";
           }
         });
       });

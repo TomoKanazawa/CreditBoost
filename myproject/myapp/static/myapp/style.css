@@ -12,9 +12,23 @@ header {
   color: #1c2540;
 }
 
-body, footer {
+body {
   background-color: #1c2540;
   color: #EBF4F6;
+}
+
+footer {
+  clear: both;
+  background: #1c2540;
+  color: #EBF4F6;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  margin: 0;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -87,6 +101,32 @@ img {
   max-height: 100%;
   max-width: 100%;
 }
+
+.btn-group button {
+  background-color: #893168;
+  border: 1px solid #893168;
+  color: #F9FAFB;
+  justify-content: center;
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #731650;
+}
+
 
 .edward-img {
   border-radius: 50%;
