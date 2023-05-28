@@ -1,37 +1,31 @@
-{% extends 'myapp/base.html' %}
-
-{% load static %}
-
-{% block head %}
+{% extends 'myapp/base.html' %} {% load static %} {% block head %}
 <script src="https://js.stripe.com/v3/"></script>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="loaders hidden">
-    <span id="screen-blocker"></span>
+  <span id="screen-blocker"></span>
 </div>
 
 <div class="mybg-edward">
-    <div class="container">
-
-        <!-- Eye catch -->
-        <div class="row justify-content-start">
-            <div class="col-6 text-left">
-                <div class="center">
-                    <h1>Build your credit score!</h1>
-                    <p>Unlock your financial potential with CreditBoost - the key to a brighter future! Elevate your credit score and soar towards limitless possibilities, all with the ease and security you deserve.</p>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="center">
-                    <p><img src="{% static 'myapp/credit_score_boost.png' %}"></p>
-                </div>
-            </div>
+  <div class="container">
+    <!-- Eye catch -->
+    <div class="row justify-content-start">
+      <div class="col-6 text-left">
+        <div class="center">
+          <h1>Build your credit score!</h1>
+          <p>
+            Unlock your financial potential with CreditBoost - the key to a
+            brighter future! Elevate your credit score and soar towards
+            limitless possibilities, all with the ease and security you deserve.
+          </p>
         </div>
+      </div>
+      <div class="col-6">
+        <div class="center">
+          <p><img src="{% static 'myapp/credit_score_boost.png' %}" /></p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
-{% endblock %}
-
-{% block script %}
-{% endblock %}
+{% endblock %} {% block script %} {% endblock %}
