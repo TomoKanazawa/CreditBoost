@@ -77,7 +77,8 @@
               </nav>
         </header>
 
-        {% block content %}{% endblock %}
+
+
 
         <footer class="text-center">    
             <!-- Copyright -->
@@ -102,17 +103,23 @@
               sessionStorage.setItem("scrollToElement", navButtonTargets[navButton.id]);
               const targetElement = document.getElementById(navButtonTargets[navButton.id]);
 
-              if (currentURL === "{% url 'myapp:index' %}") {
+              if (currentURL === "{% url 'myapp:loanmanage' %}") {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
               } else {
                 // Redirect to the destination page
-                window.location.href = "{% url 'myapp:index' %}";
+                window.location.href = "{% url 'myapp:loanmanage' %}";
               }
             });
           });
         </script>
 
         {% block script %}{% endblock %}
-
     </body>
 </html>
+
+
+
+
+
+
+
