@@ -114,16 +114,11 @@
 
     <div class="mybg-edward">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-6 text-center">
-            <h1>Loan Application</h1>
-            <form action = "" method = "post">
-              {% csrf_token %}
-              {{form.as_p }}
-              <input type="submit" value="Continue">
-            </form>
-          </div>
-        </div>
+        <h1>Loan Application</h1>
+        <p>User: {{ loan_app.profile_id }}</p>
+        <p>Loan Amount: {{ loan_app.initial_loan_amnt }}</p>
+        <p>Number of installments: {{ loan_app.num_installments }}</p>
+        <p>Amount per installment: {{ loan_app.amt_per_installment }}</p>
       </div>
     </div>
 

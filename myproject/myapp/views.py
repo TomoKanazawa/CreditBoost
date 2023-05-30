@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .forms import LoanAppForm
+from .models import LoanModel
+from django.shortcuts import render, redirect
+from .forms import LoanModelForm
 
 # Create your views here.
 def index(request):
@@ -12,18 +13,29 @@ def loan_manage(request):
     return render(request, 'myapp/loan_manage.html')
 
 def loan_application(request):
-    context = {}
-    myform = LoanAppForm()
+    myform = LoanModelForm()
     if request.POST:
-        myform = LoanAppForm(request.POST)
+        myform = LoanModelForm(request.POST)
         if myform.is_valid():
-            amt = request.POST['loan_amount']
-            num_install = request.POST['num_installments']
-            print(f"amt = {amt}    num_install = {num_install}")
+            request.session['_old_post'] = request.POST
+            return redirect('myapp:loan_app_verify')
         else:
             print("Form is not valid. Check your input!")
-    context['form'] = myform
-    return render(request, 'myapp/loan_application.html', context)
+    return render(request, 'myapp/loan_application.html', {'form' : myform})
+
+def loan_app_verify(request):
+    context = {}
+    old_post = request.session.get('_old_post')
+    form = LoanModelForm(old_post)
+    new_loan_app : LoanModel = form.save(commit=False)
+    new_loan_app.profile_id = request.user.email
+    new_loan_app.amt_per_installment = new_loan_app.initial_loan_amnt / new_loan_app.num_installments
+    new_loan_app.total_amt_left = new_loan_app.initial_loan_amnt
+    new_loan_app.save()
+    context['loan_app'] = new_loan_app
+    if request.POST:
+        form.save_m2m()
+    return render(request, 'myapp/loan_app_verify.html', context)
 
 def manage_active_loan(request):
     return render(request, 'myapp/manage_active_loan.html')

@@ -10,6 +10,7 @@ urlpatterns = [
   path('loan_application', views.loan_application, name='loan_application'),
   path('manage_active_loan', views.manage_active_loan, name='manage_active_loan'),
   path('loan_manage', views.loan_manage, name='loan_manage'),
+  path('loan_app_verify', views.loan_app_verify, name='loan_app_verify'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
