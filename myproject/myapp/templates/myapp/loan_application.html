@@ -117,13 +117,10 @@
         <div class="row justify-content-center">
           <div class="col-6 text-center">
             <h1>Loan Application</h1>
-            <form class="loan_apply" method="POST" action="/loan_apply_form">
-              <ul>
-                <li>
-                  <label for="user">User:</label>
-                  <input type="text" id="user" value="USERNAME" readonly>
-                </li>
-              </ul>
+            <form action = "" method = "post">
+              {% csrf_token %}
+              {{form.as_p }}
+              <input type="submit" value="Submit">
             </form>
           </div>
         </div>
