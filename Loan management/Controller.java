@@ -1,40 +1,60 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/loans")
+@RequestMapping("/loans")
 public class LoanController {
 
-    private final LoanRepository loanRepository;
-    private final LoanCalculationService loanCalculationService;
-
     @Autowired
-    public LoanController(LoanRepository loanRepository, LoanCalculationService loanCalculationService) {
-        this.loanRepository = loanRepository;
-        this.loanCalculationService = loanCalculationService;
-    }
+    private JdbcTemplate jdbcTemplate;
 
     @PostMapping
-    public ResponseEntity<Loan> createOrUpdateLoan(@RequestBody Loan loan) {
-        if (loan.getId() != null) {
-            if (loanRepository.existsById(loan.getId())) {
-                Loan updatedLoan = loanRepository.save(loan);
-                return ResponseEntity.ok(updatedLoan); // Return the updated Loan object
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-            }
+    public ResponseEntity<Loan> updateLoan(@RequestBody Loan loan) {
+        String updateQuery = "UPDATE loan SET amount = ?, duration = ? WHERE id = ?";
+        int rowsAffected = jdbcTemplate.update(updateQuery, loan.getAmount(), loan.getDuration(), loan.getId());
+        if (rowsAffected > 0) {
+            return new ResponseEntity<>(loan, HttpStatus.OK);
         } else {
-            Loan createdLoan = loanRepository.save(loan);
-
-            // Call the loan amount calculation service to get the latest loan amount
-            double latestLoanAmount = loanCalculationService.calculateLoanAmount(createdLoan.getUserId());
-
-            // Update the loan amount of the Loan object
-            createdLoan.setAmount(latestLoanAmount);
-
-            return ResponseEntity.ok(createdLoan); // Return the created Loan object
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{loanId}")
+    public ResponseEntity<Loan> getLoanById(@PathVariable("loanId") long loanId) {
+        String selectQuery = "SELECT * FROM loan WHERE id = ?";
+        Loan loan = jdbcTemplate.queryForObject(selectQuery, new Object[]{loanId}, LoanController::mapLoan);
+        if (loan != null) {
+            return new ResponseEntity<>(loan, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Loan>> getLoansByProfileId(@RequestParam("profileId") long profileId) {
+        String selectQuery = "SELECT * FROM loan WHERE profileId = ?";
+        List<Loan> loans = jdbcTemplate.query(selectQuery, new Object[]{profileId}, LoanController::mapLoan);
+        if (!loans.isEmpty()) {
+            return new ResponseEntity<>(loans, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    private static Loan mapLoan(ResultSet rs, int rowNum) throws SQLException {
+        Loan loan = new Loan();
+        loan.setId(rs.getLong("id"));
+        loan.setAmount(rs.getDouble("amount"));
+        loan.setDuration(rs.getInt("duration"));
+        // Set other loan properties if available in the loan table
+        return loan;
     }
 }
