@@ -18,8 +18,8 @@ public class LoanController {
 
     @PostMapping
     public ResponseEntity<Loan> updateLoan(@RequestBody Loan loan) {
-        String updateQuery = "UPDATE loan SET amount = ?, duration = ? WHERE id = ?";
-        int rowsAffected = jdbcTemplate.update(updateQuery, loan.getAmount(), loan.getDuration(), loan.getId());
+        String updateQuery = "UPDATE loan SET initial_loan_amnt = ?, num_installments = ?, total_amt_left = ? WHERE loan_id = ?";
+        int rowsAffected = jdbcTemplate.update(updateQuery, loan.getInitialLoanAmount(), loan.getNumInstallments(), loan.getTotalAmountLeft(), loan.getLoanId());
         if (rowsAffected > 0) {
             return new ResponseEntity<>(loan, HttpStatus.OK);
         } else {
@@ -29,7 +29,7 @@ public class LoanController {
 
     @GetMapping("/{loanId}")
     public ResponseEntity<Loan> getLoanById(@PathVariable("loanId") long loanId) {
-        String selectQuery = "SELECT * FROM loan WHERE id = ?";
+        String selectQuery = "SELECT * FROM loan WHERE loan_id = ?";
         Loan loan = jdbcTemplate.queryForObject(selectQuery, new Object[]{loanId}, LoanController::mapLoan);
         if (loan != null) {
             return new ResponseEntity<>(loan, HttpStatus.OK);
@@ -40,7 +40,7 @@ public class LoanController {
 
     @GetMapping
     public ResponseEntity<List<Loan>> getLoansByProfileId(@RequestParam("profileId") long profileId) {
-        String selectQuery = "SELECT * FROM loan WHERE profileId = ?";
+        String selectQuery = "SELECT * FROM loan WHERE profile_id = ?";
         List<Loan> loans = jdbcTemplate.query(selectQuery, new Object[]{profileId}, LoanController::mapLoan);
         if (!loans.isEmpty()) {
             return new ResponseEntity<>(loans, HttpStatus.OK);
@@ -51,10 +51,13 @@ public class LoanController {
 
     private static Loan mapLoan(ResultSet rs, int rowNum) throws SQLException {
         Loan loan = new Loan();
-        loan.setId(rs.getLong("id"));
-        loan.setAmount(rs.getDouble("amount"));
-        loan.setDuration(rs.getInt("duration"));
-        // Set other loan properties if available in the loan table
+        loan.setLoanId(rs.getLong("loan_id"));
+        loan.setProfileId(rs.getLong("profile_id"));
+        loan.setOpenStatus(rs.getBoolean("open_status"));
+        loan.setInitialLoanAmount(rs.getDouble("initial_loan_amnt"));
+        loan.setNumInstallments(rs.getInt("num_installments"));
+        loan.setAmountPerInstallment(rs.getDouble("amt_per_installment"));
+        loan.setTotalAmountLeft(rs.getDouble("total_amt_left"));
         return loan;
     }
 }
